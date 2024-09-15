@@ -1,0 +1,2513 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, user-scalable=no, width=device-width"
+    />
+    <title>吉林省洪涝灾害一张图系统</title>
+
+    <style>
+        html,
+        body,
+        #container{
+            width: 100%;
+            height: 100%;
+            /* margin: 85px 300px 65px 300px; */
+            margin: 0;
+            padding: 0;
+        }
+
+        .demo-title {
+          position: absolute;
+          top: 32px;
+          /* left: 25px; */
+          z-index: 4;
+        }
+
+        h1 {
+          font-size: 33px;
+          margin: 0;
+          color:aliceblue;
+          position: fixed;
+            top: 9px; 
+            /* position: relative;
+            top: 3px; */
+            width: 100%;
+            height: 85px;
+            text-align: center;
+        }
+
+        #top{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 75px;
+            /* border: 3px solid #73AD21; */
+            background-image: url('./img/top.png');
+            background-position:center;
+            /* background-size: contain; */
+            z-index: 2;
+            background-size: 100% 100%;
+        }
+
+        #bottom{
+
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 55px;
+            /* border: 3px solid #ad7321; */
+            background-image: url('./img/bottom.png');
+            background-position:center;
+            z-index: 2;
+            background-size: 100% 100%;
+        }
+
+        #top2{
+          position: fixed;
+          left: 15.3vw;
+          width: 69vw;
+          height: 13vh;
+          bottom:55px;
+          /* top: 85px; */
+          /* top: calc(85vh - 55px); */
+          /* border: 3px solid #0bf417; */
+          z-index: 3;
+          display: flex;
+          background-image: url('./img/border1.png');
+            background-size: 100% 100%;
+        }
+
+        
+
+        #top23{
+            flex: 1;
+            /* border: 3px solid #ad218c; */
+        }
+
+        #left{
+            position: fixed;
+            left: 0;
+            top:75px;
+            /* width: 300px; */
+            /* height: 100%; */
+            width: 15vw;
+            height: calc(100vh - 130px);
+            background-image: url('./img/left.png');
+            /* border: 3px solid #ad218c; */
+            z-index: 1;
+            /* display: flex; */
+            background-size: 100% 100%;
+        }
+
+        #left1,#left2{
+            width: 14.7vw;
+            /* flex: 1; */
+            height: 30%;
+            /* border: 3px solid #0bf417; */
+            background-image: url('./img/border1.png');
+            background-size: 100% 100%;
+        }
+
+        #left21{
+          width: 14.5vw;
+          /* flex: 1; */
+          height: 10%;
+          /* border: 3px solid #f703ba; */
+          background-image: url('./img/image85.png');
+          background-size: contain;
+          color: aliceblue;
+          background-size: 100% 100%;
+        }
+
+        #left22{
+          width: 14.5vw;
+          /* flex: 1; */
+          height: 88%;
+          /* border: 3px solid #f703ba; */
+        }
+
+        #left1title{
+          width: 14.5vw;
+          /* flex: 1; */
+          height: 10%;
+          /* border: 3px solid #f703ba; */
+          background-image: url('./img/image85.png');
+          background-size: contain;
+          color: aliceblue;
+          background-size: 100% 100%;
+        }
+
+        #left1mid{
+          width: 14.5vw;
+          /* flex: 1; */
+          height: 30%;
+          /* border: 3px solid #f703ba; */
+          display: flex;
+          margin-left:1%;
+        }
+
+        #left1name{
+          flex: 1;
+          /* border: 3px solid #f703ba; */
+          margin: 10px;
+          /* color: aliceblue; */
+          background-image: url('./img/border1.png');
+          /* background-size: contain; */
+          background-size: 100% 100%;
+          display: flex;
+        }
+
+        #l1name1{
+            flex: 1;
+            /* border: 3px solid #f7f703; */
+            background-image: url('./img/icon7.png');
+            background-size: 100% 100%;
+            margin-top:12%;
+            margin-bottom:12%;
+            margin-left:6%;
+        }
+
+        #l1name2{
+            flex: 2;
+            /* border: 3px solid #f7f703; */
+            margin-left:6%;
+        }
+
+        #l1n21{
+            height: 32%;
+            /* border: 3px solid #f703ba; */
+            color: aliceblue;
+            margin-top:20%;
+            font-size:20px
+        }
+
+        #l1n22{
+            height: 28%;
+            /* border: 3px solid #f703ba; */
+            color: grey;
+            
+        }
+
+        #left1index{
+          flex: 1;
+          /* border: 3px solid #f703ba; */
+          margin: 10px;
+          color: aliceblue;
+          background-image: url('./img/border1.png');
+          /* background-size: contain; */
+          background-size: 100% 100%;
+          display: flex;
+        }
+
+        #l1index1{
+            flex: 1;
+            /* border: 3px solid #f7f703; */
+            background-image: url('./img/icon4.png');
+            background-size: 100% 100%;
+            margin-top:11%;
+            margin-bottom:11%;
+            margin-left:6%;
+        }
+
+        #l1index2{
+            flex: 2;
+            /* border: 3px solid #f7f703; */
+            /* text-align: center; */
+            margin-top:20%;
+            margin-bottom:17%;
+            margin-left:5%;
+            font-size:20px
+        }
+
+        #left1discribe{
+          width: 14.5vw;
+          /* flex: 1; */
+          height: 25%;
+          /* border: 3px solid #f703ba; */
+          color: aliceblue;
+          background-image: url('./img/border1.png');
+          /* background-size: contain; */
+          background-size: 100% 100%;
+          margin-bottom:2%;
+          overflow:auto;
+          /* overflow:hidden; */
+        }
+
+        #left1pic{
+          width: 14.5vw;
+          /* flex: 1; */
+          height: 34%;
+          /* border: 3px solid #f703ba; */
+
+        }
+
+        #left1pic marquee img{
+            height: calc(9.5vh - 11px);
+        }
+
+        #left3{
+            width: 14.7vw;
+            /* flex: 1; */
+            height: 40%;
+            /* border: 3px solid #0bf417; */
+            background-image: url('./img/border1.png');
+            background-size: 100% 100%;
+        }
+
+        .box1,
+        .box2,
+        .tab1,
+        .tab2 {
+            /* width: 700px; */
+            width: 14.6vw;
+            /* margin: 100px auto; */
+            margin-bottom: 0px;
+            border-collapse: collapse;
+            background-color: rgba(21, 191, 238,0.3);
+        }
+ 
+        /* 表格居中(去除外边框影响) */
+        .box2,
+        .tab1,
+        .tab2 {
+            margin-top: 0px;
+        }
+ 
+        /* 表头样式 */
+        .box1 {
+            border-top: 1px black solid;
+            border-right: 1px black solid;
+            background-color: rgba(8, 30, 156, 0.995);
+            color: aliceblue;
+        }
+ 
+        /* 表格容器样式 */
+        .box2 {
+            height: 28.5vh;
+            overflow: hidden;
+            position: relative;
+        }
+ 
+        /* 文本一样式 */
+        .tab1 {
+            border-right: 1px black solid;
+            position: relative;
+        }
+ 
+        /* 文本二样式 */
+        .tab2 {
+            border-right: 1px black solid;
+            position: absolute;
+        }
+ 
+        /* 按钮居中 */
+        .box5 {
+            width: 200px;
+            margin: 0px auto;
+        }
+ 
+        /* 按钮长宽 */
+        .btn{
+            width: 60px;
+            /* height: 30px; */
+            height: calc(3.1vh - 7px);
+            background-color: #1157c0;
+            color: aliceblue;
+        }
+ 
+        /* 文本每行样式 */
+        .box1 td,
+        .box2 td {
+            border: 1px black solid;
+            border-top: 0px;
+            border-right: 0px;
+            text-align: center;
+            height: 55px;
+        }
+ 
+        /* 改变文本偶数行样式 */
+        tr:nth-child(2n) {
+            background-color: rgba(244, 241, 236,0.3);
+        }
+ 
+        /* 去除表格边框上边距 */
+        .box3 td,
+        .box4 td {
+            border-top: none;
+        }
+ 
+        /* 调整文本第一个单元格样式：颜色，宽度 */
+        td:nth-child(1) {
+            color: rgba(246, 5, 5, 1);
+            width: 80px;
+        }
+ 
+        /* 调整文本第二个单元格样式：颜色，宽度 */
+        td:nth-child(2) {
+            color: rgba(249, 249, 249, 0.868);
+            width: 80px;
+        }
+ 
+        /* 调整文本第三个单元格样式：颜色，宽度 */
+        td:nth-child(3) {
+            color: rgba(249, 249, 249, 0.868);
+            width: 80px;
+        }
+ 
+        /* 调整文本第四个单元格样式：颜色，宽度 */
+        td:nth-child(4) {
+            color: rgba(249, 249, 249, 0.868);
+            width: 80px;
+        }
+
+        td:nth-child(5) {
+            color: rgba(249, 249, 249, 0.868);
+            width: 80px;
+        }
+
+        td:nth-child(6) {
+            color: rgba(249, 249, 249, 0.868);
+            width: 120px;
+        }
+
+
+        #right{
+            position: fixed;
+            right: 0;
+            top: 75px;
+            /* width: 300px; */
+            width: 15vw;
+            height: calc(100vh - 130px);
+            /* border: 3px solid #31b6e7; */
+            background-image: url('./img/right.png');
+            /* z-index: 1; */
+            background-size: 100% 100%;
+        }
+
+        #right1{
+            width: 14.7vw;
+            /* flex: 1; */
+            height: 30%;
+            /* border: 3px solid #0bf417; */
+            background-image: url('./img/border1.png');
+            background-size: 100% 100%;
+        }
+
+        #right2{
+            width: 14.7vw;
+            /* flex: 1; */
+            height: 43%;
+            /* border: 3px solid #0bf417; */
+            background-image: url('./img/border1.png');
+            background-size: 100% 100%;
+        }
+
+        #right3{
+            width: 14.7vw;
+            /* flex: 1; */
+            height: 27%;
+            /* border: 3px solid #0bf417; */
+            background-image: url('./img/border1.png');
+            background-size: 100% 100%;
+        }
+
+        #right11{
+            width: 14.5vw;
+          /* flex: 1; */
+          height: 10%;
+          /* border: 3px solid #f703ba; */
+          background-image: url('./img/image85.png');
+          background-size: contain;
+          color: aliceblue;
+          background-size: 100% 100%;
+        }
+
+        #right12{
+            width: 14.5vw;
+          /* flex: 1; */
+          height: 90%;
+          /* border: 3px solid #f703ba; */
+        }
+
+        #right21{
+          width: 14.5vw;
+          /* flex: 1; */
+          height: 7%;
+          /* border: 3px solid #f703ba; */
+          background-image: url('./img/image85.png');
+          background-size: contain;
+          color: aliceblue;
+          background-size: 100% 100%;
+        }
+
+        #right22{
+          width: 14.5vw;
+          /* flex: 1; */
+          height: 90%;
+          /* border: 3px solid #f703ba; */
+        }
+
+        #right31{
+          width: 14.5vw;
+          /* flex: 1; */
+          height: 11%;
+          /* border: 3px solid #f703ba; */
+          background-image: url('./img/image85.png');
+          background-size: contain;
+          color: aliceblue;
+          background-size: 100% 100%;
+        }
+
+        #right32{
+          width: 14.5vw;
+          /* flex: 1; */
+          height: 87%;
+          /* border: 3px solid #f703ba; */
+        }
+
+        #right32 marquee img{
+            height: calc(23.3vh - 28px);
+        }
+
+
+        #topbac{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 110px;
+            /* border: 3px solid #73AD21; */
+            background-image: url('./img/namebar.png');
+            background-position:top center;
+            /* background-size: contain; */
+            /* z-index: 3; */
+            background-size: 100% 100%;
+        }
+
+        #botbac{
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 35px;
+            /* border: 3px solid #73AD21; */
+            background-image: url('./img/image82.png');
+            background-position:top center;
+            background-size: 100% 100%;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+    
+      window.onload = function () {
+
+          // 获取表格容器box2和第二个文本tab2的对象
+          var box2 = document.getElementsByClassName("box2")[0];
+          var tab2 = document.getElementsByClassName("tab2")[0];
+
+          // 滚动方法
+          function scroll() {
+              // 第一个文本全部滚动完后，回到原位
+              if (tab2.offsetTop - box2.scrollTop <= 0) {
+                  box2.scrollTop = 0;
+              }
+              // 第一个文本若没有全部滚动完，则继续滚动
+              else {
+                  box2.scrollTop += 2;
+              }
+              // 滚动状态，滚动时为1，停止为0
+              scrollkey = 1;
+          }
+
+          var timer;
+          // 开始时静止，滚动状态为0
+          var scrollkey = 0;
+          // 点击状态：点击开始按钮后starkey为1，点击结束按钮时starkey为0
+          var starkey = 0;
+
+          // 获取开始按钮btn1的对象
+          // var btn1 = document.getElementById("btn1");
+
+          btn1.onclick = function () {
+
+              // 停止状态时点击开始按钮，才有对应的开始动作
+              if (starkey == 0 && scrollkey == 0) {
+                  starkey = 1;
+                  timer = setInterval(scroll, 15);
+                  scrollkey = 1;
+
+                  // 鼠标移入表格，表格停止滚动
+                  box2.onmouseover = function () {
+                      clearInterval(timer);
+                      scrollkey = 0;
+                  }
+                  // 鼠标移出表格，表格开始滚动
+                  box2.onmouseout = function () {
+                      if (starkey == 1) {
+                          timer = setInterval(scroll, 15);
+                          scrollkey = 1;
+                      }
+                  }
+              }
+          }
+
+          // 获取结束按钮btn2的对象
+          // var btn2 = document.getElementById("btn2");
+
+          // 点击结束按钮，表格停止滚动
+          btn2.onclick = function () {
+              clearInterval(timer);
+              scrollkey = 0;
+              starkey = 0;
+          }
+
+          // 点击重置按钮，回到最初始状态
+          btn3.onclick = function () {
+              clearInterval(timer);
+              box2.scrollTop = 0;
+              starkey = 0;
+              scrollkey = 0;
+          }
+
+      }
+    </script>
+
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+          securityJsCode: '25e86a6e214dd6ef43bddb42e6632422',
+        //   「你申请的安全密钥」25e86a6e214dd6ef43bddb42e6632422
+        };
+      </script>
+      <script src="https://webapi.amap.com/maps?v=2.0&key=21f59cac87f3ec5507341c02d3d5877f"></script>
+      <script src="https://webapi.amap.com/loca?v=2.0.0&key=21f59cac87f3ec5507341c02d3d5877f"></script>
+    
+      <script src="./ku/echarts.min.js"></script>
+
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <div class="demo-title">
+        <h1>吉林省洪涝灾害风险评估一张图</h1>
+    </div>
+
+    <script>
+        var map=new AMap.Map('container',{
+            viewMode: '3D', //默认使用 2D 模式
+            pitch: 45,
+            zoom: 8.12, //地图级别
+            center: [126.844728, 42.64423], //地图中心点
+            mapStyle: "amap://styles/blue", //设置地图的显示样式
+        })
+        //异步加载控件
+        AMap.plugin(['AMap.ToolBar','AMap.ControlBar','AMap.MapType','AMap.HawkEye','AMap.Scale'],function(){ 
+            var toolbar = new AMap.ToolBar({
+                position: {
+                    bottom: 'calc(13vh + 270px)',
+                    right: 'calc(15vw + 15px)'
+                }
+            }); //缩放工具条实例化
+            map.addControl(toolbar); //添加控件
+            var controlBar = new AMap.ControlBar({
+                //position:'LB',
+                //offset:AMap.Pixel(1000,1000),
+                position: {
+                    bottom: 'calc(13vh + 225px)',
+                    left: 'calc(15vw + 15px)'
+                }
+            });
+            map.addControl(controlBar); //添加控件
+            var mapType = new AMap.MapType({
+                //position:'LB',
+                //offset:AMap.Pixel(1000,1000),
+                position: {
+                    top: '100px',
+                    right: 'calc(15vw + 15px)'
+                }
+            });
+            map.addControl(mapType); //添加控件
+            var hawkEye = new AMap.HawkEye({
+                //position:'LB',
+                //offset:AMap.Pixel(1000,1000),
+                position: {
+                    bottom: 'calc(13vh + 70px)',
+                    right: 'calc(15vw + 15px)'
+                },
+                mapStyle: "amap://styles/blue", //设置地图的显示样式
+                //borderRadius:'20px'
+            });
+            map.addControl(hawkEye); //添加鹰眼控件
+            var scale = new AMap.Scale({
+                position: {
+                    bottom: 'calc(13vh + 70px)',
+                    right: 'calc(15vw + 185px)'
+                },
+            });
+            map.addControl(scale); //添加控件
+        });
+  
+  
+        var loca = window.loca = new Loca.Container({
+          map,
+        });
+  
+        loca.ambLight = {
+          intensity: 0.3,
+          color: '#fff',
+        };
+        loca.dirLight = {
+          intensity: 0.6,
+          color: '#fff',
+          target: [0, 0, 0],
+          position: [0, -1, 1],
+        };
+        loca.pointLight = {
+          color: 'rgb(100,100,100)',
+          position: [120.24289, 30.341335, 20000],
+          intensity: 3,
+          // 距离表示从光源到光照强度为 0 的位置，0 就是光不会消失。
+          distance: 50000,
+        };
+  
+        var geo = new Loca.GeoJSONSource({
+          //url:'./data/outputok3.geojson',
+          url:'./data/jilin_county5.geojson',
+          //url:'https://a.amap.com/Loca/static/loca-v2/demos/mock_data/hz_gn.json',
+      });
+  
+      //var colors = ['#00AF53', '#00873A', '#006B31', '#004835', '#003829'].reverse();
+      var colors = [ '#FF0000', '#FF8000', '#FFFF00', '#8BD100','#38A800'].reverse();
+      var height = [40000, 80000, 120000, 160000, 200000];
+      var pl = new Loca.PolygonLayer({
+          // loca,
+          zIndex: 120,
+          opacity: 0.8,
+          // cullface: 'none',
+          shininess: 10,
+          hasSide: true,
+      });
+  
+      pl.setSource(geo);
+      pl.setStyle({
+          topColor: function (index, feature) {
+              var v = feature.properties.Comprehensive;
+              return v == 5 ? colors[4] :
+                  v == 4 ? colors[3] :
+                      v == 3 ? colors[2] :
+                          v == 2 ? colors[1] :
+                              v == 1 ? colors[0] : 'green';
+          },
+          sideTopColor: function (index, feature) {
+              // var v = feature.properties.value;
+              var v = feature.properties.Comprehensive;
+              return v == 5 ? colors[4] :
+                  v == 4 ? colors[3] :
+                      v == 3 ? colors[2] :
+                          v == 2 ? colors[1] :
+                              v == 1 ? colors[0] : 'green';
+          },
+          sideBottomColor: function (index, feature) {
+              // var v = feature.properties.value;
+              var v = feature.properties.Comprehensive;
+              return v == 5 ? colors[4] :
+                  v == 4 ? colors[3] :
+                      v == 3 ? colors[2] :
+                          v == 2 ? colors[1] :
+                              v == 1 ? colors[0] : 'green';
+          },
+          height: function (index, feature) {
+              var v = feature.properties.Comprehensive;
+              return v == 5 ? height[4] :
+                  v == 4 ? height[3] :
+                      v == 3 ? height[2] :
+                          v == 2 ? height[1] :
+                              v == 1 ? height[0] : 0;
+          },
+          altitude: 0,
+      });
+  
+      loca.add(pl);
+  
+      // 图例
+      var lengend = new Loca.Legend({
+          loca: loca,
+          title: {
+              label: '危险性指标',
+              fontColor: '#eee',
+          },
+          style: {
+              backgroundColor: 'rgb(150,150,150)',
+              left: 'calc(15vw + 15px)',
+              bottom: 'calc(13vh + 70px)',
+          },
+          dataMap: [
+              { label: "低危险性", color: colors[0] },
+              { label: "次低危险性", color: colors[1] },
+              { label: "中危险性", color: colors[2] },
+              { label: "次高危险性", color: colors[3] },
+              { label: "高危险性", color: colors[4] },
+          ].reverse(),
+      });
+  
+      // 生长动画
+      map.on('click', function () {
+        pl.addAnimate({
+          key: 'height',
+          value: [0, 1],
+          duration: 1000,
+          easing: 'CubicInOut',
+        }, function () {
+          // console.log(123);
+        });
+      });
+  
+      // 创建纯文本标记
+      var text = new AMap.Text({
+        text: '纯文本标记',
+        anchor: 'center', // 设置文本标记锚点
+        draggable: true,
+        cursor: 'pointer',
+        angle: 0,
+        visible: false,
+        offset: [0, -25],
+        style: {
+          'padding': '5px 10px',
+          'margin-bottom': '1rem',
+          'border-radius': '.25rem',
+          'background-color': 'rgba(0,0,0,0.5)',
+          // 'width': '12rem',
+          'border-width': 0,
+          'box-shadow': '0 2px 6px 0 rgba(255, 255, 255, .3)',
+          'text-align': 'left',
+          'font-size': '16px',
+          'color': '#fff',
+        },
+      });
+      text.setMap(map);
+  
+      var name;
+      var type;
+      var discribe;
+      // 拾取
+      map.on('mousemove', (e) => {
+        var feat = pl.queryFeature(e.pixel.toArray());
+        //console.log(feat.properties.NAME)
+  
+        if (feat) {
+          text.show();
+          //var health = feat.properties.health;
+          var com = feat.properties.Comprehensive;
+          var dang = feat.properties.Danger;
+          var sens = feat.properties.sensitivity;
+          var bro = feat.properties.broke;
+          var fixless = feat.properties.fix;
+          var cword;
+          var dword;
+          var sword;
+          var bword;
+          var fword;
+          if(com==1)
+            cword="低风险";
+          else if(com==2)
+            cword="次低风险";
+          else if(com==3)
+            cword="中风险";
+          else if(com==4)
+            cword="次高风险";
+          else if(com==5)
+            cword="高风险";
+          if(dang==1)
+            dword="低危险性";
+          else if(dang==2)
+            dword="次低危险性";
+          else if(dang==3)
+            dword="中危险性";
+          else if(dang==4)
+            dword="次高危险性";
+          else if(dang==5)
+            dword="高危险性";
+          if(sens==1)
+            sword="低敏感性";
+          else if(sens==2)
+            sword="次低敏感性";
+          else if(sens==3)
+            sword="中敏感性";
+          else if(sens==4)
+            sword="次高敏感性";
+          else if(sens==5)
+            sword="高敏感性";
+          if(bro==1)
+            bword="低易损性";
+          else if(bro==2)
+            bword="次低易损性";
+          else if(bro==3)
+            bword="中易损性";
+          else if(bro==4)
+            bword="次高易损性";
+          else if(bro==5)
+            bword="高易损性";
+          if(fixless==1)
+            fword="低防灾减灾能力";
+          else if(fixless==2)
+            fword="次低防灾减灾能力";
+          else if(fixless==3)
+            fword="中防灾减灾能力";
+          else if(fixless==4)
+            fword="次高防灾减灾能力";
+          else if(fixless==5)
+            fword="高防灾减灾能力";
+          text.setText(feat.properties.NAME +'-'+ feat.properties.CITY+
+            '<br>风险等级：' + cword+
+            '<br>危险性：'+dword  +
+            '<br>敏感性：'+sword+
+            '<br>易损性：'+bword+
+            '<br>防灾减灾能力：'+fword,
+          );
+          text.setPosition(e.lnglat);
+  
+          pl.setStyle({
+            topColor: (index, feature) => {
+              if (feature === feat) {
+                return [255, 255, 255, 0.5];
+              }
+              var v = feature.properties.Comprehensive;
+              return v == 5 ? colors[4] :
+                  v == 4 ? colors[3] :
+                      v == 3 ? colors[2] :
+                          v == 2 ? colors[1] :
+                              v == 1 ? colors[0] : 'green';
+            },
+            sideTopColor: (index, feature) => {
+              if (feature === feat) {
+                return [255, 255, 255, 0.5];
+              }
+              //var v = feature.properties.health * 100;
+              var v = feature.properties.Comprehensive;
+              return v == 5 ? colors[4] :
+                  v == 4 ? colors[3] :
+                      v == 3 ? colors[2] :
+                          v == 2 ? colors[1] :
+                              v == 1 ? colors[0] : 'green';
+            },
+            sideBottomColor: (index, feature) => {
+              if (feature === feat) {
+                return [255, 255, 255, 0.5];
+              }
+              var v = feature.properties.Comprehensive;
+              return v == 5 ? colors[4] :
+                  v == 4 ? colors[3] :
+                      v == 3 ? colors[2] :
+                          v == 2 ? colors[1] :
+                              v == 1 ? colors[0] : 'green';
+            },
+            height: function (index, feature) {
+              var v = feature.properties.Comprehensive;
+              return v == 5 ? height[4] :
+                  v == 4 ? height[3] :
+                      v == 3 ? height[2] :
+                          v == 2 ? height[1] :
+                              v == 1 ? height[0] : 0;
+            },
+          })
+
+          // 基于准备好的dom，初始化echarts实例
+          var myChart14 = echarts.init(document.getElementById('right22'));
+          window.addEventListener('resize', function() {
+                myChart14.resize();
+          });
+
+          var option14 = {
+              title: {
+                /*text: '各项二级指标数据',
+                textStyle:{
+                  color:"azure",
+                }*/
+                show : false,
+              },
+              tooltip: {
+                  show : true,
+                  trigger:'item',
+                  enterable:true,
+              },
+              legend: {
+                data: ['各项二级指标数据']
+              },
+              xAxis: {
+                type: 'value',
+                axisLine:{
+                    show:false,
+                },
+                splitLine:{
+                    show:true,
+                }
+              },
+              yAxis: {
+                type:'category',
+                data: ['年均暴雨天数', '年均雨季降水量', '历史暴雨频次', 
+                    '相对高程', '植被覆盖度FVC', '土壤可蚀性', '河网密度', '绝对高程', 
+                    '人口密度', '地均GDP', '土地利用类型', 
+                    '地区生产总值', '人均可支配收入', '万人均床位'],
+              
+              },
+              series: [
+                {
+                  name: feat.properties.NAME +'各项指标结果',
+                  type: 'bar',
+                  data: [feat.properties.yearday, feat.properties.yearrain, feat.properties.hisrain, 
+                  feat.properties.high, feat.properties.FVC/100, feat.properties.SOIL, feat.properties.RIVER, feat.properties.superhigh/10, 
+                  feat.properties.Population, feat.properties.PerGDP, feat.properties.landuse, 
+                  feat.properties.GDP/10000, feat.properties.peoplemoney/1000, feat.properties.peobed],
+                  showBackground:true,
+                  itemStyle:{
+                  color:'rgb(69, 197, 199)',
+                  },
+                  emphasis:{
+                    itemStyle:{
+                        color:'white'
+                    }
+                  },
+                  label:{
+                    show:true,
+                    position:"right",
+                    //rotate:45,
+                    formatter: '{c}'
+                  },
+                },
+              
+              ]
+          };
+          // 使用刚指定的配置项和数据显示图表。
+          myChart14.setOption(option14);
+
+          // 基于准备好的dom，初始化echarts实例
+          var myChart44 = echarts.init(document.getElementById('left22'));
+          window.addEventListener('resize', function() {
+                myChart44.resize();
+            });
+
+          // 指定图表的配置项和数据
+          var option44 = {
+          title: {
+              /*text: 'ECharts学习',
+              textStyle:{
+                  color:"azure",
+              }*/
+              show : false,
+          },
+          tooltip: {
+              show : true,
+              trigger:'item',
+              enterable:true,
+          },
+          legend: {
+              data: ['销量']
+          },
+          radar: {
+              indicator: [
+                  { name: '危险性', max: 5 },
+                  { name: '敏感性', max: 5 },
+                  { name: '易损性', max: 5 },
+                  { name: '灭灾减灾能力', max: 5 }
+              ],
+              // splitArea: {
+              //     areaStyle: {
+              //     color: ['#77EADF', '#26C3BE', '#64AFE9', '#428BD4'],
+              //     shadowColor: 'rgba(0, 0, 0, 0.2)',
+              //     shadowBlur: 10
+              //     }
+              // },
+              axisLine: {
+                  lineStyle: {
+                  color: 'rgba(211, 253, 250, 0.8)'
+                  }
+              },
+              splitLine: {
+                  lineStyle: {
+                  color: 'rgba(211, 253, 250, 0.8)'
+                  }
+              }
+          },
+          series: [
+              {
+                  name: feat.properties.NAME +'各项指标结果',
+                  type: 'radar',
+                  data: [
+                      {
+                      value: [dang, sens, bro, fixless],
+                      name: feat.properties.NAME +'各项指标结果',
+                      lineStyle: {
+                          //type: 'dashed'
+                      },
+                      areaStyle: {
+                          color: 'rgba(255, 228, 52, 0.6)'
+                      }
+                      },
+                  ],
+                  itemStyle:{
+                  color:'yellow',
+                  },
+                  emphasis:{
+                      itemStyle:{
+                          color:'red'
+                      }
+                  }
+                  
+              },
+              
+          ]
+          };
+          // 使用刚指定的配置项和数据显示图表。
+          myChart44.setOption(option44);
+
+          name=feat.properties.NAME;
+          type=cword;
+          discribe=feat.properties.discription;
+
+          // document.getElementById(left1name).text = name;
+          // document.getElementById(left1name).style.backgroundColor="gray";
+          var divname = document.getElementById("l1n21");
+          divname.innerText =name;
+
+          var divnamecity = document.getElementById("l1n22");
+          divnamecity.innerText =feat.properties.CITY;
+
+          var divtype = document.getElementById("l1index2");
+          divtype.innerText =type;
+
+          var divdiscre = document.getElementById("left1discribe");
+          divdiscre.innerText =discribe;
+          divdiscre.style.color="write";
+
+
+
+        } 
+        else {
+          text.hide();
+        }
+      }
+    );
+
+  
+  
+      
+  
+    </script>
+
+
+
+    <div id="right">
+        <div id="right1">
+            <div id="right11">
+                <h4 style="margin: 0;">&nbsp&nbsp&nbsp指标权重分配</h4>
+            </div>
+            <div id="right12"></div>
+        </div>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart4 = echarts.init(document.getElementById('right12'));
+            window.addEventListener('resize', function() {
+                myChart4.resize();
+            });
+      
+            // 指定图表的配置项和数据
+            var option4 = {
+              tooltip: {
+                  trigger: 'item',
+                  //formatter: '{a} <br/>{@idvalue}: {c}',
+                  formatter: '{a} <br/>{b}: {c}'
+                },
+                legend: {
+                  show: false
+                },
+                series: [
+                  {
+                    name: '指标权重',
+                    //type: 'pie',
+                    type:'sunburst',
+                    selectedMode: 'single',
+                    radius: ['20%', '80%'],
+                    label: {
+                      position: 'inner',
+                      fontSize: 14,
+                      color:'rgb(255, 255, 255)'
+                    },
+                    labelLine: {
+                      show: false
+                    },
+                    itemStyle: {
+                      borderRadius:4,
+                      //borderColor: '#fff',
+                      //borderWidth: 1,
+                      
+                    },
+                    data: [
+                      { 
+                        //value: 0.304, 
+                        name: '危险性',
+                        itemStyle:{color:'rgb(91, 155, 213)'},
+                        children:[
+                          { value: 0.098192, name: '暴雨天数',itemStyle:{color:'rgb(222, 235, 246)'},'idvalue': 0.323 },
+                          { value: 0.116432, name: '雨季降水量' ,itemStyle:{color:'rgb(189, 215, 238)'},'idvalue': 0.383 },
+                          { value: 0.089376, name: '暴雨频次' ,itemStyle:{color:'rgb(156, 195, 229)'},'idvalue': 0.294 },
+                        ]                  
+                      },
+                      { 
+                        //value: 0.348, 
+                        name: '敏感性',
+                        itemStyle:{color:'rgb(255, 192, 0)'},  
+                        children:[
+                          { value: 0.078996, name: '相对高程',itemStyle:{color:'rgb(255, 242, 204)'},'idvalue': 0.227  },
+                          { value: 0.075516, name: 'FCV' ,itemStyle:{color:'rgb(254, 229, 153)'},'idvalue': 0.217 },
+                          { value: 0.035844, name: '土壤可蚀性',itemStyle:{color:'rgb(255, 217, 101)'},'idvalue':  0.103  },
+                          { value: 0.07482, name: '河网密度',itemStyle:{color:'rgb(191, 144, 0)'},'idvalue': 0.215  },
+                          { value: 0.082824, name: '绝对高程' ,itemStyle:{color:'rgb(127, 96, 0)'},'idvalue': 0.238 },
+                        ]
+                      },
+                      { 
+                        //value: 0.211, 
+                        name: '易损性',
+                        itemStyle:{color:'rgb(112, 173, 71)'},
+                        children:[
+                          { value: 0.094528, name: '人口密度' ,itemStyle:{color:'rgb(226, 239, 217)'},'idvalue': 0.448 },
+                          { value: 0.063089, name: '地均GDP',itemStyle:{color:'rgb(197, 224, 179)'},'idvalue': 0.299  },
+                          { value: 0.053383, name: '土地利用类型',itemStyle:{color:'rgb(168, 208, 141)'},'idvalue': 0.253  },
+                        ]
+                      },
+                      { 
+                        //value: 0.137, 
+                        name: '防灾减灾能力',
+                        itemStyle:{color:'rgb(237, 125, 49)'},
+                        children:[
+                          { value: 0.061239, name: '地区生产总值',itemStyle:{color:'rgb(251, 229, 213)'},'idvalue': 0.447  },
+                          { value: 0.021509, name: '人均可支配收入',itemStyle:{color:'rgb(247, 203, 172)'},'idvalue': 0.157  },
+                          { value:  0.054252, name: '万人均床位',itemStyle:{color:'rgb(244, 177, 131)'},'idvalue':  0.396  }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart4.setOption(option4);
+        </script>
+
+
+        <div id="right2">
+            <div id="right21">
+                <h4 style="margin: 0;">&nbsp&nbsp&nbsp二级指标情况</h4>
+            </div>
+            <div id="right22"></div>
+        </div>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart3 = echarts.init(document.getElementById('right22'));
+            yearrainclick=3000;
+            window.addEventListener('resize', function() {
+                myChart3.resize();
+            });
+      
+            // 指定图表的配置项和数据
+            var option5 = {
+              title: {
+                show : false,
+                
+              },
+              tooltip: {
+                 show : true,
+                 trigger:'item',
+                 enterable:true,
+              },
+              legend: {
+                data: ['销量']
+              },
+              xAxis: {
+                type: 'value',
+                axisLine:{
+                    show:false,
+                },
+                splitLine:{
+                    show:true,
+                }
+                // data: ['危险性', '敏感性', '易损性', '防灾灭灾能力'],
+                // axisLabel:{
+                //     rotate:45,
+                // }
+              },
+              yAxis: {
+                type:'category',
+                data: ['年均暴雨天数', '年均雨季降水量', '历史暴雨频次', 
+                  '相对高程', '植被覆盖度FVC', '土壤可蚀性', '河网密度', '绝对高程', 
+                  '人口密度', '地均GDP', '土地利用类型', 
+                  '地区生产总值', '人均可支配收入', '万人均床位'],
+              },
+              grid:{
+                top:'10px',
+                bottom:'16px'
+              },
+              series: [
+                {
+                  name: '销量1',
+                  type: 'bar',
+                  data: [10000, 20000, 30000, 40000, 20000, 30000, 40000, 20000, 30000, 40000, 20000, 30000, 40000, 20000],
+                  
+                  /*data: [10000, yearrainclick, hisrainclick, 
+                    highclick, fvcclick, soilclick, riverclick, superhighclick, 
+                    popclick, pergdpclick, lulcclick, 
+                    gdpclick, peomoneyclick, peobedclick],*/
+                  showBackground:true,
+                  itemStyle:{
+                    color:'rgb(69, 197, 199)',
+                  },
+                  emphasis:{
+                    itemStyle:{
+                        color:'white'
+                    }
+                  },
+                  label:{
+                    show:true,
+                    position:"right",
+                    //rotate:45,
+                    formatter: '{c}'
+                  },
+                },
+                
+              ]
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart3.setOption(option5);
+        </script>
+
+
+        <div id="right3">
+            <div id="right31">
+                <h4 style="margin: 0;">&nbsp&nbsp&nbsp成果图展示</h4>
+            </div>
+            <div id="right32">
+                <marquee onmouseover="this.stop()" onMouseOut="this.start()">
+                    <img src="./jgpic/1.png">
+                    <img src="./jgpic/2.png">
+                    <img src="./jgpic/3.png">
+                    <img src="./jgpic/4.png">
+                    <img src="./jgpic/5.png">
+                    <img src="./jgpic/6.png">
+                    <img src="./jgpic/7.png">
+                    <img src="./jgpic/8.png">
+                    <img src="./jgpic/9.png">
+                    <img src="./jgpic/10.png">
+                    <img src="./jgpic/11.png">
+                    <img src="./jgpic/12.png">
+                    <img src="./jgpic/13.png">
+
+                </marquee>
+            </div>
+        </div>
+        
+    </div>
+
+    <div id="left">
+        <div id="left1">
+          <div id="left1title">
+            <h4 style="margin: 0;">&nbsp&nbsp&nbsp行政区情况</h4>
+          </div>
+          <div id="left1mid">
+            <div id="left1name">
+                <div id="l1name1"></div>
+                <div id="l1name2">
+                    <div id="l1n21">行政区</div>
+                    <div id="l1n22">行政区市划</div>
+                </div>
+            </div>
+            <div id="left1index">
+                <div id="l1index1"></div>
+                <div id="l1index2">
+                    <div id="l1i21"></div>
+                    <div id="l1i22">风险情况</div>
+                </div>
+            </div>
+          </div>
+          <div id="left1discribe">行政区划洪涝灾害风险评估具体情况</div>
+          <div id="left1pic">
+            <marquee onmouseover="this.stop()" onMouseOut="this.start()">
+                <img src="./jlpic/city.png">
+                <img src="./jlpic/jl.jpg">
+                <img src="./jlpic/snow.png">
+                <img src="./jlpic/snowtc.jpg">
+                <img src="./jlpic/tc.png">
+                <img src="./jlpic/tree.png">
+                <img src="./jlpic/jldx.png">
+                <img src="./jlpic/dzg.png">
+            </marquee>
+          </div>
+
+        </div>
+
+
+        <div id="left2">
+            <div id="left21">
+                <h4 style="margin: 0;">&nbsp&nbsp&nbsp一级指标情况</h4>
+            </div>
+            <div id="left22"></div>
+        </div>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart2 = echarts.init(document.getElementById('left22'));
+            window.addEventListener('resize', function() {
+                myChart2.resize();
+            });
+        
+            // 指定图表的配置项和数据
+            var option3 = {
+              title: {
+                show : false,
+                
+              },
+              tooltip: {
+                  show : true,
+                  trigger:'item',
+                  enterable:true,
+              },
+              legend: {
+                data: ['销量']
+              },
+              radar: {
+                indicator: [
+                    { name: '危险性', max: 5 },
+                    { name: '敏感性', max: 5 },
+                    { name: '易损性', max: 5 },
+                    { name: '灭灾减灾能力', max: 5 }
+                ],
+                // splitArea: {
+                //     areaStyle: {
+                //     color: ['#77EADF', '#26C3BE', '#64AFE9', '#428BD4'],
+                //     shadowColor: 'rgba(0, 0, 0, 0.2)',
+                //     shadowBlur: 10
+                //     }
+                // },
+                axisLine: {
+                    lineStyle: {
+                    color: 'rgba(211, 253, 250, 0.8)'
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                    color: 'rgba(211, 253, 250, 0.8)'
+                    }
+                }
+              },
+              series: [
+                {
+                    name: 'Budget vs spending',
+                    type: 'radar',
+                    data: [
+                        {
+                        value: [4, 3, 2, 3],
+                        name: 'xxxxxx',
+                        lineStyle: {
+                            //type: 'dashed'
+                        },
+                        areaStyle: {
+                            color: 'rgba(255, 228, 52, 0.6)'
+                        }
+                        },
+                    ],
+                    itemStyle:{
+                        color:'yellow',
+                    },
+                    emphasis:{
+                        itemStyle:{
+                            color:'red'
+                        }
+                    }
+                    
+                },
+                
+              ]
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart2.setOption(option3);
+            </script>
+
+
+        <div id="left3">
+
+          <table id="box1" class="box1">
+ 
+            <tr>
+                <td>行政区</td>
+                <td>综合风险</td>
+                <td>危险性级别</td>
+                <td>敏感性级别</td>
+                <td>易损性级别</td>
+                <td>防灾灭灾能力级别</td>
+            </tr>
+          </table>
+     
+     
+          <div id="box2" class="box2">
+     
+            <table id="tab1" class="tab1">
+                <tr>
+                    <td>南关区</td>
+                    <td>次高风险</td>
+                    <td>中危险性</td>
+                    <td>高敏感性</td>
+                    <td>高易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>宽城区</td>
+                    <td>次高风险</td>
+                    <td>次低危险性</td>
+                    <td>高敏感性</td>
+                    <td>次高易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>朝阳区</td>
+                    <td>次高风险</td>
+                    <td>中危险性</td>
+                    <td>高敏感性</td>
+                    <td>高易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>二道区</td>
+                    <td>中风险</td>
+                    <td>次低危险性</td>
+                    <td>高敏感性</td>
+                    <td>次高易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>绿园区</td>
+                    <td>次高风险</td>
+                    <td>中危险性</td>
+                    <td>高敏感性</td>
+                    <td>高易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>双阳区</td>
+                    <td>中风险</td>
+                    <td>中危险性</td>
+                    <td>次高敏感性</td>
+                    <td>次低易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>九台区</td>
+                    <td>次低风险</td>
+                    <td>次低危险性</td>
+                    <td>次高敏感性</td>
+                    <td>低易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>农安县</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>高敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>榆树市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>高敏感性</td>
+                    <td>低易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>德惠市</td>
+                    <td>低风险</td>
+                    <td>次低危险性</td>
+                    <td>高敏感性</td>
+                    <td>低易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>昌邑区</td>
+                    <td>次高风险</td>
+                    <td>中危险性</td>
+                    <td>次高敏感性</td>
+                    <td>次高易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>龙潭区</td>
+                    <td>中风险</td>
+                    <td>次低危险性</td>
+                    <td>高敏感性</td>
+                    <td>次高易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>船营区</td>
+                    <td>次高风险</td>
+                    <td>中危险性</td>
+                    <td>次高敏感性</td>
+                    <td>次高易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>丰满区</td>
+                    <td>次高风险</td>
+                    <td>中危险性</td>
+                    <td>中敏感性</td>
+                    <td>中易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>永吉县</td>
+                    <td>次低风险</td>
+                    <td>中危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>蛟河市</td>
+                    <td>低风险</td>
+                    <td>次低危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>桦甸市</td>
+                    <td>次低风险</td>
+                    <td>中危险性</td>
+                    <td>中敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>舒兰市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>中敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>磐石市</td>
+                    <td>中风险</td>
+                    <td>次高危险性</td>
+                    <td>中敏感性</td>
+                    <td>低易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>铁西区</td>
+                    <td>高风险</td>
+                    <td>次高危险性</td>
+                    <td>高敏感性</td>
+                    <td>高易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>铁东区</td>
+                    <td>中风险</td>
+                    <td>次高危险性</td>
+                    <td>次低敏感性</td>
+                    <td>中易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>梨树县</td>
+                    <td>次低风险</td>
+                    <td>中危险性</td>
+                    <td>高敏感性</td>
+                    <td>中易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>伊通满族自治县</td>
+                    <td>次低风险</td>
+                    <td>中危险性</td>
+                    <td>中敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>公主岭市</td>
+                    <td>次低风险</td>
+                    <td>次低危险性</td>
+                    <td>高敏感性</td>
+                    <td>次低易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>双辽市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>次高敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>龙山区</td>
+                    <td>高风险</td>
+                    <td>次高危险性</td>
+                    <td>高敏感性</td>
+                    <td>高易损性</td>
+                    <td>次低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>西安区</td>
+                    <td>次高风险</td>
+                    <td>次高危险性</td>
+                    <td>高敏感性</td>
+                    <td>次高易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>东丰县</td>
+                    <td>中风险</td>
+                    <td>次高危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>东辽县</td>
+                    <td>中风险</td>
+                    <td>次高危险性</td>
+                    <td>次低敏感性</td>
+                    <td>次低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>东昌区</td>
+                    <td>高风险</td>
+                    <td>高危险性</td>
+                    <td>中敏感性</td>
+                    <td>次高易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>二道江区</td>
+                    <td>高风险</td>
+                    <td>高危险性</td>
+                    <td>中敏感性</td>
+                    <td>中易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>通化县</td>
+                    <td>高风险</td>
+                    <td>高危险性</td>
+                    <td>低敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>辉南县</td>
+                    <td>次高风险</td>
+                    <td>次高危险性</td>
+                    <td>中敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>柳河县</td>
+                    <td>高风险</td>
+                    <td>次高危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>梅河口市</td>
+                    <td>次高风险</td>
+                    <td>次高危险性</td>
+                    <td>次高敏感性</td>
+                    <td>次低易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>集安市</td>
+                    <td>次高风险</td>
+                    <td>高危险性</td>
+                    <td>低敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>浑江区</td>
+                    <td>高风险</td>
+                    <td>高危险性</td>
+                    <td>低敏感性</td>
+                    <td>中易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>江源区</td>
+                    <td>高风险</td>
+                    <td>高危险性</td>
+                    <td>低敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>抚松县</td>
+                    <td>次高风险</td>
+                    <td>次高危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>靖宇县</td>
+                    <td>次高风险</td>
+                    <td>次高危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>长白朝鲜族自治县</td>
+                    <td>中风险</td>
+                    <td>次高危险性</td>
+                    <td>低敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>临江市</td>
+                    <td>高风险</td>
+                    <td>高危险性</td>
+                    <td>低敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>宁江区</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>高敏感性</td>
+                    <td>中易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>前郭尔罗斯蒙古族自治县</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>高敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>长岭县</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>高敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>乾安县</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>高敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>扶余市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>高敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>洮北区</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>次高敏感性</td>
+                    <td>次低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>镇赉县</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>高敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>通榆县</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>次高敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>洮南市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>次高敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>大安市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>高敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>延吉市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>图们市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>中敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>敦化市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>珲春市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>龙井市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>和龙市</td>
+                    <td>低风险</td>
+                    <td>中危险性</td>
+                    <td>低敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>汪清县</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>低敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>安图县</td>
+                    <td>低风险</td>
+                    <td>中危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+            </table>
+     
+            <table id="tab2" class="tab2">
+                <tr>
+                    <td>南关区</td>
+                    <td>次高风险</td>
+                    <td>中危险性</td>
+                    <td>高敏感性</td>
+                    <td>高易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>宽城区</td>
+                    <td>次高风险</td>
+                    <td>次低危险性</td>
+                    <td>高敏感性</td>
+                    <td>次高易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>朝阳区</td>
+                    <td>次高风险</td>
+                    <td>中危险性</td>
+                    <td>高敏感性</td>
+                    <td>高易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>二道区</td>
+                    <td>中风险</td>
+                    <td>次低危险性</td>
+                    <td>高敏感性</td>
+                    <td>次高易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>绿园区</td>
+                    <td>次高风险</td>
+                    <td>中危险性</td>
+                    <td>高敏感性</td>
+                    <td>高易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>双阳区</td>
+                    <td>中风险</td>
+                    <td>中危险性</td>
+                    <td>次高敏感性</td>
+                    <td>次低易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>九台区</td>
+                    <td>次低风险</td>
+                    <td>次低危险性</td>
+                    <td>次高敏感性</td>
+                    <td>低易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>农安县</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>高敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>榆树市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>高敏感性</td>
+                    <td>低易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>德惠市</td>
+                    <td>低风险</td>
+                    <td>次低危险性</td>
+                    <td>高敏感性</td>
+                    <td>低易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>昌邑区</td>
+                    <td>次高风险</td>
+                    <td>中危险性</td>
+                    <td>次高敏感性</td>
+                    <td>次高易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>龙潭区</td>
+                    <td>中风险</td>
+                    <td>次低危险性</td>
+                    <td>高敏感性</td>
+                    <td>次高易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>船营区</td>
+                    <td>次高风险</td>
+                    <td>中危险性</td>
+                    <td>次高敏感性</td>
+                    <td>次高易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>丰满区</td>
+                    <td>次高风险</td>
+                    <td>中危险性</td>
+                    <td>中敏感性</td>
+                    <td>中易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>永吉县</td>
+                    <td>次低风险</td>
+                    <td>中危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>蛟河市</td>
+                    <td>低风险</td>
+                    <td>次低危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>桦甸市</td>
+                    <td>次低风险</td>
+                    <td>中危险性</td>
+                    <td>中敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>舒兰市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>中敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>磐石市</td>
+                    <td>中风险</td>
+                    <td>次高危险性</td>
+                    <td>中敏感性</td>
+                    <td>低易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>铁西区</td>
+                    <td>高风险</td>
+                    <td>次高危险性</td>
+                    <td>高敏感性</td>
+                    <td>高易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>铁东区</td>
+                    <td>中风险</td>
+                    <td>次高危险性</td>
+                    <td>次低敏感性</td>
+                    <td>中易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>梨树县</td>
+                    <td>次低风险</td>
+                    <td>中危险性</td>
+                    <td>高敏感性</td>
+                    <td>中易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>伊通满族自治县</td>
+                    <td>次低风险</td>
+                    <td>中危险性</td>
+                    <td>中敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>公主岭市</td>
+                    <td>次低风险</td>
+                    <td>次低危险性</td>
+                    <td>高敏感性</td>
+                    <td>次低易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>双辽市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>次高敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>龙山区</td>
+                    <td>高风险</td>
+                    <td>次高危险性</td>
+                    <td>高敏感性</td>
+                    <td>高易损性</td>
+                    <td>次低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>西安区</td>
+                    <td>次高风险</td>
+                    <td>次高危险性</td>
+                    <td>高敏感性</td>
+                    <td>次高易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>东丰县</td>
+                    <td>中风险</td>
+                    <td>次高危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>东辽县</td>
+                    <td>中风险</td>
+                    <td>次高危险性</td>
+                    <td>次低敏感性</td>
+                    <td>次低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>东昌区</td>
+                    <td>高风险</td>
+                    <td>高危险性</td>
+                    <td>中敏感性</td>
+                    <td>次高易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>二道江区</td>
+                    <td>高风险</td>
+                    <td>高危险性</td>
+                    <td>中敏感性</td>
+                    <td>中易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>通化县</td>
+                    <td>高风险</td>
+                    <td>高危险性</td>
+                    <td>低敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>辉南县</td>
+                    <td>次高风险</td>
+                    <td>次高危险性</td>
+                    <td>中敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>柳河县</td>
+                    <td>高风险</td>
+                    <td>次高危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>梅河口市</td>
+                    <td>次高风险</td>
+                    <td>次高危险性</td>
+                    <td>次高敏感性</td>
+                    <td>次低易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>集安市</td>
+                    <td>次高风险</td>
+                    <td>高危险性</td>
+                    <td>低敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>浑江区</td>
+                    <td>高风险</td>
+                    <td>高危险性</td>
+                    <td>低敏感性</td>
+                    <td>中易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>江源区</td>
+                    <td>高风险</td>
+                    <td>高危险性</td>
+                    <td>低敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>抚松县</td>
+                    <td>次高风险</td>
+                    <td>次高危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>靖宇县</td>
+                    <td>次高风险</td>
+                    <td>次高危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>长白朝鲜族自治县</td>
+                    <td>中风险</td>
+                    <td>次高危险性</td>
+                    <td>低敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>临江市</td>
+                    <td>高风险</td>
+                    <td>高危险性</td>
+                    <td>低敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>宁江区</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>高敏感性</td>
+                    <td>中易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>前郭尔罗斯蒙古族自治县</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>高敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>长岭县</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>高敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>乾安县</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>高敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>扶余市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>高敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>洮北区</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>次高敏感性</td>
+                    <td>次低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>镇赉县</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>高敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>通榆县</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>次高敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>洮南市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>次高敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>大安市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>高敏感性</td>
+                    <td>低易损性</td>
+                    <td>中防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>延吉市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>图们市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>中敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>敦化市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>次高防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>珲春市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>龙井市</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>和龙市</td>
+                    <td>低风险</td>
+                    <td>中危险性</td>
+                    <td>低敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>汪清县</td>
+                    <td>低风险</td>
+                    <td>低危险性</td>
+                    <td>低敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+                <tr>
+                    <td>安图县</td>
+                    <td>低风险</td>
+                    <td>中危险性</td>
+                    <td>次低敏感性</td>
+                    <td>低易损性</td>
+                    <td>低防灾灭灾能力</td>
+                </tr>
+            </table>
+          </div>
+     
+          <div class="box5">
+            <table>
+                <tr>
+                    <td>
+                        <button id="btn1" class="btn">开始</button>
+                    </td>
+                    <td>
+                        <button id="btn2" class="btn">暂停</button>
+                    </td>
+                    <td>
+                        <button id="btn3" class="btn">重置</button>
+                    </td>
+                </tr>
+            </table>
+     
+          </div>
+
+        </div>
+    </div>
+
+    <div id="top2">
+        <div id="top23"></div>
+    </div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart60 = echarts.init(document.getElementById('top23'));
+        window.addEventListener('resize', function() {
+                myChart60.resize();
+            });
+    
+        // 指定图表的配置项和数据
+        var option60 = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    label: {
+                        backgroundColor: '#6a7985'
+                    }
+                }
+            },
+            toolbox: {
+                feature: {
+                saveAsImage: {}
+                }
+            },
+            grid: {
+                left: '1%',
+                right: '2%',
+                bottom: '3%',
+                containLabel: true,
+                top:'25px'
+            },
+            xAxis: [
+                {
+                type: 'category',
+                boundaryGap: false,
+                data: ['南关区', '宽城区', '朝阳区', '二道区', '绿园区', '双阳区', '九台区', '农安县', '榆树市', '德惠市', '昌邑区', '龙潭区', '船营区', '丰满区', '永吉县', '蛟河市', '桦甸市', '舒兰市', '磐石市', '铁西区', '铁东区', '梨树县', '伊通满族自治县', '公主岭市', '双辽市', '龙山区', '西安区', '东丰县', '东辽县', '东昌区', '二道江区', '通化县', '辉南县', '柳河县', '梅河口市', '集安市', '浑江区', '江源区', '抚松县', '靖宇县', '长白朝鲜族自治县', '临江市', '宁江区', '前郭尔罗斯蒙古族自治县', '长岭县', '乾安县', '扶余市', '洮北区', '镇赉县', '通榆县', '洮南市', '大安市', '延吉市', '图们市', '敦化市', '珲春市', '龙井市', '和龙市', '汪清县', '安图县']
+                }
+            ],
+            yAxis: [
+                {
+                type: 'value'
+                }
+            ],
+            series: [
+                {
+                    name: '风险系数',
+                    type: 'line',
+                    stack: 'Total',
+                    areaStyle: {},
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    itemStyle:{
+                        color:'red',
+                    },
+                    smooth: true,
+                    data: [4, 4, 4, 3, 4, 3, 2, 1, 1, 1, 4, 3, 4, 4, 2, 1, 2, 1, 3, 5, 3, 2, 2, 2, 1, 5, 4, 3, 3, 5, 5, 5, 4, 5, 4, 4, 5, 5, 4, 4, 3, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart60.setOption(option60);
+    </script>
+
+  <div id="top"></div>
+  <div id="bottom"></div>
+  <div id="topbac"></div>
+  <div id="botbac"></div>
+  
+  
+    
+</body>
+</html>
